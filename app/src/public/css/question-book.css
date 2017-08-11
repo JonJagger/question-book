@@ -52,7 +52,7 @@
       float: right;
       color: white;
     }
-    input#qid {
+    input#q_id {
       display: inline;
       padding-left: 5px;
       width: 115px;

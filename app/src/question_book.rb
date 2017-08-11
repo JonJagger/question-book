@@ -15,17 +15,17 @@ class QuestionBook < Sinatra::Base
 
   post '/asked' do
     # TODO: save question
+    hash[params['q_id']] = params['q_text']
     redirect to('/')
   end
 
   get '/qid' do
     content_type :json
-    #{ exists:false, text:'what is your favourite colour' }.to_json
     '{ "exists":"true", "text":"what is your favourite colour?" }'
   end
 
   get '/answer' do
-    # TODO: use QID to get question
+    # TODO: use params['q_id'] to get question
     erb :answer
   end
 

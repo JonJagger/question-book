@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   submit.disable();
 
-  $('#asked').keyup(function(){
+  $('#q_text').keyup(function(){
     // TODO: have maximum question length
     submit.enable($(this).val().trim() !== '');
   });
@@ -34,11 +34,11 @@ $(document).ready(function() {
 <form method="post" action="asked">
   <row>
     <label>its hex-id is
-      <input type="text" id="qid" name="qid" readonly value="<%= @qid %>">
+      <input type="text" id="q_id" name="q_id" readonly value="<%= @qid %>">
     </label>
   </row>
-  <textarea id="asked"
-            name="asked"
+  <textarea id="q_text"
+            name="q_text"
             placeholder="Enter your question here" autofocus></textarea>
   <row>
     <button type="submit">submit it</button>

@@ -7,7 +7,7 @@
     padding-right: 10px;
   }
 
-  textarea#answer {
+  textarea#a_text {
     height: 200px;
     margin-top: 5px;
   }
@@ -21,9 +21,9 @@
 
 $(document).ready(function() {
 
-  const qid      = $('#qid');
-  const question = $('#question');
-  const answer   = $('#answer');
+  const qid      = $('#q_id');
+  const question = $('#q_text');
+  const answer   = $('#a_text');
   const submit   = abled($(':submit'));
 
   const onlyAcceptHexIdInput = function() {
@@ -55,7 +55,7 @@ $(document).ready(function() {
   const retrieveQuestionFromHexId = function() {
     qid.keyup(function(){
       if (qid.val().length > 2) {
-        $.getJSON('/qid', { id:qid.val() }, function(q) {
+        $.getJSON('/qid', { q_id:qid.val() }, function(q) {
           if (q.exists) {
             showQuestionAnswerSubmit(q.text);
           }
@@ -65,7 +65,7 @@ $(document).ready(function() {
   };
 
   const enableSubmitIfAnswer = function() {
-    $('#answer').keyup(function(){
+    answer.keyup(function(){
       // TODO: have maximum answer length
       submit.enable($(this).val().trim() !== '');
     });
@@ -95,15 +95,16 @@ $(document).ready(function() {
   <row>
     <label>its hex-id is
       <input type="text"
-             id="qid"
-             name="qid"
+             id="q_id"
+             name="q_id"
              autocomplete="off"
              placeholder="?"
              autofocus>
     </label>
   </row>
-  <textarea id="question" readonly></textarea>
-  <textarea id="answer" name="answer"
+  <textarea id="q_text" readonly></textarea>
+  <textarea id="a_text"
+            name="a_text"
             placeholder="Enter your answer here"></textarea>
   <row>
     <button type="submit">submit it</button>
