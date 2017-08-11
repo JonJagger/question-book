@@ -1,9 +1,9 @@
 require_relative './test_base'
 
-class HomeTest < TestBase
+class AskTest < TestBase
 
   def test_page_displays
-    get '/'
+    get '/ask'
     assert_response ok
   end
 

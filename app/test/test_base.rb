@@ -8,7 +8,7 @@ class TestBase < Minitest::Test
   include Rack::Test::Methods
 
   def app
-    raise 'SubclassResponsibility'
+    QuestionBook
   end
 
   def assert_response(n)
