@@ -3,9 +3,28 @@
 
 $(document).ready(function() {
 
+  const qid      = $('#qid');
+  const question = $('#question');
+  const answer   = $('#answer');
+  const submit   = $(':submit');
+
+  question.hide();
 
 });
 
 //--></script>
 
 <h1>answer a question</h1>
+
+<form method="post" action="answered">
+  <row>
+    <label>question
+      <input type="text" id="qid" name="qid" placeholder="?" autofocus>
+    </label>
+  </row>
+  <textarea id="question" readonly></textarea>
+  <textarea id="answer" name="answer"></textarea>
+  <row>
+    <button type="submit" id="answer-it">answer it</button>
+  </row>
+</form>
