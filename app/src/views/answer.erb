@@ -37,13 +37,14 @@ $(document).ready(function() {
 
   const retrieveQuestionFromHexId = function() {
     qid.keyup(function(){
-      if (qid.val() !== '') {
+      if (qid.val().length > 2) {
         $.getJSON('/qid', { id:qid.val() }, function(q) {
           if (q.exists) {
             question.val(q.text).slideDown('slow', function(){
               answer.slideDown('slow', function() {
-                submit.show();
-                answer.focus();
+                submit.slideDown('slow', function() {
+                  answer.focus();
+                });
               });
             });
           }
@@ -82,7 +83,7 @@ $(document).ready(function() {
 <form method="post" action="answered">
   <row>
     <label>question
-      <input type="text" id="qid" name="qid" placeholder="?" autofocus>
+      <input type="text" id="qid" name="qid" autocomplete="off" placeholder="?" autofocus>
     </label>
   </row>
   <textarea id="question" readonly></textarea>
