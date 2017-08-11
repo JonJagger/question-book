@@ -18,12 +18,11 @@ $(document).ready(function() {
 
   const submit = $(':submit');
 
-  submit.prop('disabled', true);
+  disable(submit);
 
   $('#asked').keyup(function(){
     // TODO: have maximum question length
-    const ifEmpty = $(this).val().trim() === '';
-    submit.prop('disabled', ifEmpty);
+    questionBook.enableIf(submit, $(this).val().trim() !== '');
   });
 
 });

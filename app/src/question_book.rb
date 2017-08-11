@@ -9,7 +9,6 @@ class QuestionBook < Sinatra::Base
   end
 
   get '/ask' do
-    # TODO: generate the UUID
     @qid = qid
     erb :ask
   end

@@ -20,6 +20,8 @@
 
 $(document).ready(function() {
 
+  const qb = questionBook;
+
   const qid      = $('#qid');
   const question = $('#question');
   const answer   = $('#answer');
@@ -41,7 +43,7 @@ $(document).ready(function() {
   const showQuestionAnswerSubmit = function(text) {
     question.val(text).slideDown('slow', function(){
       answer.slideDown(900, function() {
-        submit.prop('disabled',true);
+        qb.disable(submit);
         submit.slideDown('slow', function() {
           answer.focus();
         });
@@ -64,8 +66,7 @@ $(document).ready(function() {
   const enableSubmitIfAnswer = function() {
     $('#answer').keyup(function(){
       // TODO: have maximum answer length
-      const ifEmpty = $(this).val().trim() === '';
-      submit.prop('disabled', ifEmpty);
+      qb.enableIf(submit, $(this).val().trim() !== '');
     });
   };
 
