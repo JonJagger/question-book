@@ -3,7 +3,7 @@
 
   button[type="submit"] {
     float: right;
-    width: 120px;
+    width: 135px;
     padding-right: 10px;
   }
 
@@ -45,6 +45,7 @@ $(document).ready(function() {
         submit
           .enable(answer.val().trim() !== '')
           .slideDown('slow', function() {
+            //TODO: only switch focus if revealing?
             answer.focus();
           });
       });
@@ -92,18 +93,19 @@ $(document).ready(function() {
 
 <form method="post" action="answered">
   <row>
-    <label>question
+    <label>its hex-id is
       <input type="text"
              id="qid"
              name="qid"
              autocomplete="off"
-             placeholder="hex-id?"
+             placeholder="?"
              autofocus>
     </label>
   </row>
   <textarea id="question" readonly></textarea>
-  <textarea id="answer" name="answer" placeholder="?"></textarea>
+  <textarea id="answer" name="answer"
+            placeholder="Enter your answer here"></textarea>
   <row>
-    <button type="submit">answer</button>
+    <button type="submit">submit it</button>
   </row>
 </form>

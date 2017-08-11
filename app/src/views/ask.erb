@@ -3,7 +3,7 @@
 
   button[type="submit"] {
     float: right;
-    width: 120px;
+    width: 135px;
     padding-right: 10px;
   }
 
@@ -33,12 +33,14 @@ $(document).ready(function() {
 
 <form method="post" action="asked">
   <row>
-    <label>question
+    <label>its hex-id is
       <input type="text" id="qid" name="qid" readonly value="<%= @qid %>">
     </label>
   </row>
-  <textarea id="asked" name="asked" placeholder="?" autofocus></textarea>
+  <textarea id="asked"
+            name="asked"
+            placeholder="Enter your question here" autofocus></textarea>
   <row>
-    <button type="submit">ask</button>
+    <button type="submit">submit it</button>
   </row>
 </form>
