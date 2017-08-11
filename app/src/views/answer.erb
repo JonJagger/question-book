@@ -10,11 +10,37 @@ $(document).ready(function() {
 
   question.hide();
 
+  qid.keypress(function(e) {
+    // Only accept hex input
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (str.match(/[a-fA-F0-9]/)) {
+      return true;
+    } else {
+      e.preventDefault();
+      //beep
+      return false;
+    }
+  });
+
+  qid.keyup(function(){
+    if (qid.val() !== '') {
+      $.getJSON('/qid', { qid:qid.val() }, function(q) {
+        // if (q.exists) {
+        //   question.val(q.text).show();
+        // }
+      });
+    }
+  });
+
 });
 
 //--></script>
 
 <h1>answer a question</h1>
+
+<audio>
+  <source id="beep" src="audio/beep.mp3"></source>
+</audio>
 
 <form method="post" action="answered">
   <row>

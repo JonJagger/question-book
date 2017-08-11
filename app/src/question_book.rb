@@ -18,6 +18,9 @@ class QuestionBook < Sinatra::Base
     redirect to('/')
   end
 
+  get '/qid' do
+  end
+
   get '/answer' do
     # TODO: use QID to get question
     erb :answer
