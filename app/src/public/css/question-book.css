@@ -63,7 +63,6 @@
       display: block;
       margin: 0 auto;
       width: 355px;
-      border-radius: 10px;
       padding-left: 8px;
       padding-right: 4px;
     }
@@ -72,7 +71,6 @@
       display: inline;
       background-color: white;
       color: black;
-      border-radius: 10px;
     }
 
 }
