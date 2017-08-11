@@ -72,6 +72,7 @@
     button#ask-it {
       float: right;
       width: 120px;
+      padding-right: 10px;
     }
 
     input {

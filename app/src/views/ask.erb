@@ -3,6 +3,14 @@
 
 $(document).ready(function() {
 
+  const submit = $(':submit');
+
+  submit.prop('disabled', true);
+
+  $('#asked').keyup(function(){
+    const ifEmpty = $(this).val().trim() === '';
+    submit.prop('disabled',ifEmpty);
+  });
 
 });
 
@@ -16,7 +24,7 @@ $(document).ready(function() {
       <input type="text" id="qid" name="qid" readonly value="<%= @qid %>">
     </label>
   </row>
-  <textarea id="asked" name="asked" placeholder="Type your question here"></textarea>
+  <textarea id="asked" name="asked" placeholder="?"></textarea>
   <row>
     <button type="submit" id="ask-it">ask it</button>
   </row>

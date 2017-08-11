@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'securerandom'
 
 class QuestionBook < Sinatra::Base
 
@@ -8,7 +9,7 @@ class QuestionBook < Sinatra::Base
 
   get '/ask' do
     # TODO: generate the UUID
-    @qid = '4391E0'
+    @qid = qid
     erb :ask
   end
 
@@ -30,6 +31,12 @@ class QuestionBook < Sinatra::Base
   get '/read' do
     # TODO:
     erb :read
+  end
+
+private
+
+  def qid
+    SecureRandom.hex[0..5].upcase
   end
 
 end
