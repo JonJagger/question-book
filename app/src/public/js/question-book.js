@@ -1,5 +1,5 @@
 
-const able = function(node) {
+const abled = function(node) {
 
   node.disable = function() {
     node.prop('disabled', true);
@@ -21,12 +21,7 @@ const able = function(node) {
   };
 
   node.disableIf = function(tf) {
-    if (tf) {
-      node.disable();
-    } else {
-      node.enable();
-    }
-    return node;
+    return node.enableIf(!tf);
   };
 
   return node;
