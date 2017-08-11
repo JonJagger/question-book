@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'securerandom'
+#require 'json'
 
 class QuestionBook < Sinatra::Base
 
@@ -19,6 +20,9 @@ class QuestionBook < Sinatra::Base
   end
 
   get '/qid' do
+    content_type :json
+    #{ exists:false, text:'what is your favourite colour' }.to_json
+    '{ "exists":"true", "text":"what is your favourite colour?" }'
   end
 
   get '/answer' do
