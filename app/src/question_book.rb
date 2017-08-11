@@ -29,7 +29,7 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/answered' do
-    # TODO: Save answer
+    # TODO: Save params['q_id'] and params['a_text']
     redirect to('/read')
   end
 
