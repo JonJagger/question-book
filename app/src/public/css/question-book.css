@@ -26,7 +26,7 @@
       color: white;
       cursor: default;
       position: relative;
-      top: 20px;
+      top: -5px;
     }
 
     button {
@@ -37,7 +37,7 @@
       background-color: white;
       text-align: right;
       margin-top: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       border-radius: 10px;
       cursor: hand;
     }
