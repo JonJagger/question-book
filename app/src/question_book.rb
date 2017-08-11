@@ -36,6 +36,8 @@ class QuestionBook < Sinatra::Base
 
   get '/read' do
     # TODO:
+    @qid = qid
+    @qText = "what is your favourite colour"
     erb :read
   end
 

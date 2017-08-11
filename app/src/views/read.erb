@@ -9,3 +9,11 @@ $(document).ready(function() {
 //--></script>
 
 <h1>read the answers</h1>
+
+  <row>
+    <label>its hex-id is
+      <input type="text" id="qid" name="qid" readonly value="<%= @qid %>">
+    </label>
+  </row>
+  <textarea id="question" readonly><%= @qText %></textarea>
+
