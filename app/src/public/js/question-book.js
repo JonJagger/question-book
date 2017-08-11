@@ -1,5 +1,5 @@
 
-const ed = function(node) {
+const able = function(node) {
 
   node.disable = function() {
     node.prop('disabled', true);
