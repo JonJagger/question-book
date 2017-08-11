@@ -1,4 +1,18 @@
 
+const ed = function(node) {
+
+  node.disable = function() {
+    node.prop('disabled', true);
+    return node;
+  };
+  node.enable = function() {
+    node.prop('disabled',false);
+    return node;
+  };
+
+  return node;
+};
+
 var questionBook = (function(qb) {
   "use strict";
 

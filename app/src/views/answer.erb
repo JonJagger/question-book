@@ -25,7 +25,7 @@ $(document).ready(function() {
   const qid      = $('#qid');
   const question = $('#question');
   const answer   = $('#answer');
-  const submit   = $(':submit');
+  const submit   = ed($(':submit'));
 
   const onlyAcceptHexIdInput = function() {
     qid.keypress(function(e) {
@@ -43,8 +43,7 @@ $(document).ready(function() {
   const showQuestionAnswerSubmit = function(text) {
     question.val(text).slideDown('slow', function(){
       answer.slideDown(900, function() {
-        qb.disable(submit);
-        submit.slideDown('slow', function() {
+        submit.disable().slideDown('slow', function() {
           answer.focus();
         });
       });
