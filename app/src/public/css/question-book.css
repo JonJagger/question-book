@@ -1,0 +1,83 @@
+@media screen {
+
+    * {
+        font-family: "Impact";
+        font-size: 30px;
+    }
+
+    body {
+        padding-top: 50px;
+    }
+
+    question-book {
+        display: inline-block;
+        background-color:black;
+        width: 550px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      color: white;
+      cursor: default;
+      position: relative;
+      top: 20px;
+    }
+
+    button {
+      width: 355px;
+      display: block;
+      margin: 0 auto;
+
+      background-color: white;
+      text-align: right;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border-radius: 10px;
+      cursor: hand;
+    }
+
+    row {
+      width: 355px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    label {
+      float: right;
+      color: white;
+    }
+    input#qid {
+      display: inline;
+      padding-left: 5px;
+      width: 115px;
+      margin-bottom: 5px;
+    }
+
+    textarea {
+      display: block;
+      margin: 0 auto;
+      width: 355px;
+      height: 235;
+      border-radius: 10px;
+      padding-left: 8px;
+      padding-right: 4px;
+    }
+
+    button#ask-it {
+      float: right;
+      width: 120px;
+    }
+
+    input {
+      display: inline;
+      background-color: white;
+      color: black;
+      border-radius: 10px;
+    }
+
+}
+

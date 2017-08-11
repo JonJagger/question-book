@@ -1,0 +1,15 @@
+
+version: '2'
+
+services:
+  question-book:
+    user: root
+    image: cyberdojo/question-book:1.0
+    container_name: question-book
+    tmpfs: /tmp
+    build:
+      context: app
+      args:
+        - PORT=${QUESTION_BOOK_PORT}
+    ports:
+      - ${QUESTION_BOOK_PORT}:${QUESTION_BOOK_PORT}

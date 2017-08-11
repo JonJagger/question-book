@@ -1,0 +1,23 @@
+
+<script type="text/javascript"><!--
+
+$(document).ready(function() {
+
+
+});
+
+//--></script>
+
+<h1>ask a question</h1>
+
+<form method="post" action="asked">
+  <row>
+    <label>question
+      <input type="text" id="qid" name="qid" readonly value="<%= @qid %>">
+    </label>
+  </row>
+  <textarea id="asked" name="asked" placeholder="Type your question here"></textarea>
+  <row>
+    <button type="submit" id="ask-it">ask it</button>
+  </row>
+</form>
