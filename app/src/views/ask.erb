@@ -16,13 +16,13 @@
 
 $(document).ready(function() {
 
-  const submit = $(':submit');
+  const submit = ed($(':submit'));
 
-  disable(submit);
+  submit.disable();
 
   $('#asked').keyup(function(){
     // TODO: have maximum question length
-    questionBook.enableIf(submit, $(this).val().trim() !== '');
+    submit.enableIf($(this).val().trim() !== '');
   });
 
 });

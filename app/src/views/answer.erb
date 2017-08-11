@@ -20,8 +20,6 @@
 
 $(document).ready(function() {
 
-  const qb = questionBook;
-
   const qid      = $('#qid');
   const question = $('#question');
   const answer   = $('#answer');
@@ -65,7 +63,7 @@ $(document).ready(function() {
   const enableSubmitIfAnswer = function() {
     $('#answer').keyup(function(){
       // TODO: have maximum answer length
-      qb.enableIf(submit, $(this).val().trim() !== '');
+      submit.enableIf($(this).val().trim() !== '');
     });
   };
 
