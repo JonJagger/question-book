@@ -1,27 +1,30 @@
 
 const abled = function(node) {
 
-  node.disable = function() {
-    node.prop('disabled', true);
-    return node;
+  const disable = function() {
+    node.prop('disabled',true);
   };
 
-  node.enable = function() {
+  const enable = function() {
     node.prop('disabled',false);
-    return node;
   };
 
-  node.enableIf = function(tf) {
-    if (tf) {
-      node.enable();
+  node.enable = function(tf) {
+    if (tf === undefined || tf) {
+      enable();
     } else {
-      node.disable();
+      disable();
     }
     return node;
   };
 
-  node.disableIf = function(tf) {
-    return node.enableIf(!tf);
+  node.disable = function(tf) {
+    if (tf === undefined || tf) {
+      disable();
+    } else {
+      enable();
+    }
+    return node;
   };
 
   return node;

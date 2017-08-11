@@ -22,7 +22,7 @@ $(document).ready(function() {
 
   $('#asked').keyup(function(){
     // TODO: have maximum question length
-    submit.enableIf($(this).val().trim() !== '');
+    submit.enable($(this).val().trim() !== '');
   });
 
 });

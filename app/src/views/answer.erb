@@ -32,7 +32,7 @@ $(document).ready(function() {
         return true;
       } else {
         e.preventDefault();
-        //beep
+        //TODO: beep
         return false;
       }
     });
@@ -63,7 +63,7 @@ $(document).ready(function() {
   const enableSubmitIfAnswer = function() {
     $('#answer').keyup(function(){
       // TODO: have maximum answer length
-      submit.enableIf($(this).val().trim() !== '');
+      submit.enable($(this).val().trim() !== '');
     });
   };
 
