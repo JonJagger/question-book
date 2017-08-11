@@ -39,12 +39,14 @@ $(document).ready(function() {
     });
   };
 
-  const showQuestionAnswerSubmit = function(text) {
-    question.val(text).slideDown('slow', function(){
+  const showQuestionAnswerSubmit = function(qText) {
+    question.val(qText).slideDown('slow', function(){
       answer.slideDown(900, function() {
-        submit.disable().slideDown('slow', function() {
-          answer.focus();
-        });
+        submit
+          .enable(answer.val().trim() !== '')
+          .slideDown('slow', function() {
+            answer.focus();
+          });
       });
     });
   };
