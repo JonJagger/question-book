@@ -1,7 +1,10 @@
 <style>
 @media screen {
 
-  textarea#question {
+  button[type="submit"] {
+    float: right;
+    width: 120px;
+    padding-right: 10px;
   }
 
   textarea#answer {
@@ -35,18 +38,23 @@ $(document).ready(function() {
     });
   };
 
+  const showQuestionAnswerSubmit = function(text) {
+    question.val(text).slideDown('slow', function(){
+      answer.slideDown(900, function() {
+        submit.prop('disabled',true);
+        submit.slideDown('slow', function() {
+          answer.focus();
+        });
+      });
+    });
+  };
+
   const retrieveQuestionFromHexId = function() {
     qid.keyup(function(){
       if (qid.val().length > 2) {
         $.getJSON('/qid', { id:qid.val() }, function(q) {
           if (q.exists) {
-            question.val(q.text).slideDown('slow', function(){
-              answer.slideDown('slow', function() {
-                submit.slideDown('slow', function() {
-                  answer.focus();
-                });
-              });
-            });
+            showQuestionAnswerSubmit(q.text);
           }
         });
       }
@@ -55,6 +63,7 @@ $(document).ready(function() {
 
   const enableSubmitIfAnswer = function() {
     $('#answer').keyup(function(){
+      // TODO: have maximum answer length
       const ifEmpty = $(this).val().trim() === '';
       submit.prop('disabled', ifEmpty);
     });
@@ -62,7 +71,7 @@ $(document).ready(function() {
 
   question.hide();
   answer.hide();
-  submit.hide().prop('disabled',true);
+  submit.hide();
 
   onlyAcceptHexIdInput();
   retrieveQuestionFromHexId();
@@ -87,7 +96,7 @@ $(document).ready(function() {
     </label>
   </row>
   <textarea id="question" readonly></textarea>
-  <textarea id="answer" name="answer"></textarea>
+  <textarea id="answer" name="answer" placeholder="?"></textarea>
   <row>
     <button type="submit">answer</button>
   </row>

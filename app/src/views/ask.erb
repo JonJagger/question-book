@@ -1,7 +1,7 @@
 <style>
 @media screen {
 
-  button#ask-it {
+  button[type="submit"] {
     float: right;
     width: 120px;
     padding-right: 10px;
@@ -21,6 +21,7 @@ $(document).ready(function() {
   submit.prop('disabled', true);
 
   $('#asked').keyup(function(){
+    // TODO: have maximum question length
     const ifEmpty = $(this).val().trim() === '';
     submit.prop('disabled', ifEmpty);
   });
