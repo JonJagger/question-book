@@ -9,6 +9,6 @@ which helps to avoid initial bias [See Anchoring](http://en.wikipedia.org/wiki/A
 
 Not in finished. Work in progress...
 
-![home](img/home.png)
-![ask](img/ask.png)
-![answer](img/answer.png)
+![home](img/home.png | width=300)
+![ask](img/ask.png | width=300)
+![answer](img/answer.png | width=300)
