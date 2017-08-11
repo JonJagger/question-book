@@ -31,7 +31,7 @@ class QuestionBook < Sinatra::Base
 
   post '/answered' do
     # TODO: Save answer
-    # TODO: redirect to read
+    redirect to('/read')
   end
 
   get '/read' do
