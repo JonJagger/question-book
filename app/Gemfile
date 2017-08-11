@@ -6,6 +6,7 @@ ruby "2.3.1"
 gem "sinatra", '~> 1.4.7'
 gem "sinatra-contrib", '~> 1.4.7'
 gem 'sinatra-activerecord', '~> 2.0.10'
+gem 'json'
 
 group :development, :test do
   gem 'rake', '~> 11.2.2'

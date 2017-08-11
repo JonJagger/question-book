@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'securerandom'
-#require 'json'
+require 'json'
 
 class QuestionBook < Sinatra::Base
 
@@ -15,13 +15,12 @@ class QuestionBook < Sinatra::Base
 
   post '/asked' do
     # TODO: save question
-    hash[params['q_id']] = params['q_text']
     redirect to('/')
   end
 
   get '/qid' do
     content_type :json
-    '{ "exists":"true", "text":"what is your favourite colour?" }'
+    { "exists":true, "text":"what is your favourite colour?" }.to_json
   end
 
   get '/answer' do
