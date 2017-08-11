@@ -1,3 +1,17 @@
+<style>
+@media screen {
+
+  textarea#question {
+  }
+
+  textarea#answer {
+    height: 200px;
+  }
+
+}
+</style>
+
+<!-- =========================================================== -->
 
 <script type="text/javascript"><!--
 
@@ -26,8 +40,12 @@ $(document).ready(function() {
       if (qid.val() !== '') {
         $.getJSON('/qid', { id:qid.val() }, function(q) {
           if (q.exists) {
-            // TODO: reveal slowly
-            question.val(q.text).show();
+            question.val(q.text).slideDown('slow', function(){
+              answer.slideDown('slow', function() {
+                submit.show();
+                answer.focus();
+              });
+            });
           }
         });
       }
@@ -35,17 +53,16 @@ $(document).ready(function() {
   };
 
   const enableSubmitIfAnswer = function() {
-    //only allow input into answer when there is a question?
     $('#answer').keyup(function(){
       const ifEmpty = $(this).val().trim() === '';
       submit.prop('disabled', ifEmpty);
     });
   };
 
-  //- - - - - - - - - - - - - - - - - - - - - - -
-
   question.hide();
-  submit.prop('disabled',true);
+  answer.hide();
+  submit.hide().prop('disabled',true);
+
   onlyAcceptHexIdInput();
   retrieveQuestionFromHexId();
   enableSubmitIfAnswer();
@@ -53,6 +70,8 @@ $(document).ready(function() {
 });
 
 //--></script>
+
+<!-- =========================================================== -->
 
 <h1>answer a question</h1>
 
@@ -69,6 +88,6 @@ $(document).ready(function() {
   <textarea id="question" readonly></textarea>
   <textarea id="answer" name="answer"></textarea>
   <row>
-    <button type="submit" id="answer-it">answer it</button>
+    <button type="submit">answer</button>
   </row>
 </form>

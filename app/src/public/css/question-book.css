@@ -63,16 +63,9 @@
       display: block;
       margin: 0 auto;
       width: 355px;
-      height: 235;
       border-radius: 10px;
       padding-left: 8px;
       padding-right: 4px;
-    }
-
-    button#ask-it {
-      float: right;
-      width: 120px;
-      padding-right: 10px;
     }
 
     input {
