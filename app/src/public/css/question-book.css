@@ -20,13 +20,25 @@
         border-radius: 20px;
     }
 
-    h1 {
-      font-size: 2em;
+    h1,h2 {
       text-align: center;
       color: white;
       cursor: default;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+
+    h1 {
+      padding-top: 20px;
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      padding-bottom: 20px;
       position: relative;
-      top: -5px;
+      top: -15px;
     }
 
     button {
@@ -36,7 +48,6 @@
 
       background-color: white;
       text-align: right;
-      margin-top: 5px;
       margin-bottom: 10px;
       border-radius: 10px;
       cursor: hand;
@@ -67,6 +78,7 @@
       height: 120px;
       padding-left: 8px;
       padding-right: 4px;
+      margin-bottom: 5px;
     }
 
     input {

@@ -11,12 +11,16 @@ $(document).ready(function() {
 
 //--></script>
 
-<h1>read the answers</h1>
+<h1>question book</h1>
+<row>
+  <h2>read the answers</h2>
+</row>
 
-  <row>
-    <label>its hex-id is
-      <input type="text" id="q_id" name="q_id" readonly value="<%= @qid %>">
-    </label>
-  </row>
-  <textarea id="q_text" readonly><%= @qText %></textarea>
+
+<row>
+  <label>its hex-id is
+    <input type="text" id="q_id" name="q_id" readonly value="<%= @qid %>">
+  </label>
+</row>
+<textarea id="q_text" readonly><%= @qText %></textarea>
 

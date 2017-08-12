@@ -14,6 +14,7 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/asked' do
+    # TODO: params['q_id'], params['q_text']
     # TODO: save question
     redirect to('/')
   end
