@@ -73,5 +73,10 @@
       color: black;
     }
 
+    button[type="submit"] {
+      float: right;
+      width: 135px;
+      padding-right: 10px;
+    }
 }
 
