@@ -21,12 +21,17 @@ $(document).ready(function() {
 <form method="post" action="asked">
   <row>
     <label>its hex-id is
-      <input type="text" id="q_id" name="q_id" readonly value="<%= @qid %>">
+      <input type="text"
+             id="q_id"
+             name="q_id"
+             value="<%= @qid %>"
+             readonly>
     </label>
   </row>
   <textarea id="q_text"
             name="q_text"
-            placeholder="Enter your question here" autofocus></textarea>
+            placeholder="Enter your question here"
+            autofocus></textarea>
   <row>
     <button type="submit">submit it</button>
   </row>

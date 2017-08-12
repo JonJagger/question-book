@@ -52,6 +52,7 @@
       float: right;
       color: white;
     }
+
     input#q_id {
       display: inline;
       padding-left: 5px;
@@ -63,6 +64,7 @@
       display: block;
       margin: 0 auto;
       width: 355px;
+      height: 120px;
       padding-left: 8px;
       padding-right: 4px;
     }
@@ -73,7 +75,7 @@
       color: black;
     }
 
-    button[type="submit"] {
+    button[type=submit] {
       float: right;
       width: 135px;
       padding-right: 10px;
