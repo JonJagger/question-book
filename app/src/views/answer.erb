@@ -51,6 +51,7 @@ $(document).ready(function() {
       if (qid.val().length > 2) {
         $.getJSON('/qid', { q_id:qid.val() }, function(q) {
           if (q.exists) {
+            qid.blur(); // lose-focus
             showQuestionAnswerSubmit(q.text);
           }
         });
