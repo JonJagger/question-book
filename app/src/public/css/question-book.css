@@ -3,6 +3,8 @@
     * {
         font-family: "Impact";
         font-size: 30px;
+        margin: 0;
+        padding: 0;
     }
 
     body {
@@ -24,8 +26,6 @@
       text-align: center;
       color: white;
       cursor: default;
-      margin: 0;
-      padding: 0;
       text-align: right;
     }
 
@@ -51,6 +51,7 @@
       margin-bottom: 10px;
       border-radius: 10px;
       cursor: hand;
+      padding-right: 10px;
     }
 
     row {
@@ -90,7 +91,6 @@
     button[type=submit] {
       float: right;
       width: 135px;
-      padding-right: 10px;
     }
 }
 
