@@ -30,8 +30,8 @@
     }
 
     h1 {
-      padding-top: 20px;
       font-size: 2em;
+      padding-top: 25px;
     }
 
     h2 {
@@ -49,6 +49,7 @@
       background-color: white;
       text-align: right;
       margin-bottom: 10px;
+      padding-bottom: 2px;
       border-radius: 10px;
       cursor: hand;
       padding-right: 10px;

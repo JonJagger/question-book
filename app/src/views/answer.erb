@@ -28,6 +28,7 @@ $(document).ready(function() {
           .enable(answer.val().trim() !== '')
           .slideDown('slow', function() {
             //TODO: only switch focus if revealing?
+            //TODO: don't switch focus if deleting text?
             answer.focus();
           });
       });
@@ -36,7 +37,7 @@ $(document).ready(function() {
 
   const retrieveQuestionFromHexId = function() {
     qid.keyup(function(){
-      if (qid.val().length > 2) {
+      if (qid.val().length === 6) {
         $.getJSON('/qid', { q_id:qid.val() }, function(q) {
           if (q.exists) {
             qid.blur(); // lose-focus

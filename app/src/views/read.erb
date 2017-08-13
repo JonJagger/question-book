@@ -21,7 +21,10 @@ $(document).ready(function() {
 
 <row>
   <label>its hex-id is
-    <input type="text" id="q_id" name="q_id" readonly value="<%= @qid %>">
+    <input type="text"
+           id="q_id"
+           readonly
+           value="<%= @qId %>">
   </label>
 </row>
 <textarea id="q_text" readonly><%= @qText %></textarea>

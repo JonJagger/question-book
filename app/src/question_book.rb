@@ -9,7 +9,7 @@ class QuestionBook < Sinatra::Base
   end
 
   get '/ask' do
-    @qid = qid
+    @qId = qid
     erb :ask
   end
 
@@ -30,13 +30,12 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/answered' do
-    # TODO: Save params['q_id'] and params['a_text']
-    redirect to('/read')
+    redirect to("/read?q_id=#{params['q_id']}")
   end
 
   get '/read' do
-    # TODO:
-    @qid = qid
+    @qId = params['q_id']
+    # TODO: lookup q_text
     @qText = "what is your favourite colour"
     erb :read
   end
