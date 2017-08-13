@@ -71,6 +71,7 @@
       padding-left: 5px;
       width: 115px;
       margin-bottom: 5px;
+      text-transform: uppercase;
     }
 
     textarea {
