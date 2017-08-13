@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'securerandom'
+require 'fileutils'
 require 'json'
 
 class QuestionBook < Sinatra::Base
@@ -14,18 +15,23 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/asked' do
-    # TODO: params['q_id'], params['q_text']
-    # TODO: save question
+    FileUtils::mkdir_p qDir
+    File.write(qFilename, params['q_text'])
     redirect to('/')
   end
 
   get '/qid' do
     content_type :json
-    { "exists":true, "text":"what is your favourite colour?" }.to_json
+    if File.directory?(qDir)
+      { "exists":true, "text":File.read(qFilename) }.to_json
+    else
+      { "exists":false }.to_json
+    end
   end
 
   get '/answer' do
-    # TODO: use params['q_id'] to get question
+    @qId = params['q_id']
+    # TODO: get question
     erb :answer
   end
 
@@ -44,6 +50,14 @@ private
 
   def qid
     SecureRandom.hex[0..5].upcase
+  end
+
+  def qDir
+    "/tmp/question-book/#{params['q_id'].upcase}"
+  end
+
+  def qFilename
+    "#{qDir}/question.txt"
   end
 
 end
