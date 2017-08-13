@@ -3,4 +3,3 @@ services: docker
 
 script:
     - ./pipe_build_up_test.sh
-    - ./sh/image_push.sh
