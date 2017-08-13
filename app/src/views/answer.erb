@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   const retrieveQuestionFromHexId = function() {
     qid.keyup(function(){
-      if (qid.val().length === 6) {
+      if (qid.val().length === 4) {
         $.getJSON('/qid', { q_id:qid.val() }, function(q) {
           if (q.exists) {
             qid.blur(); // lose-focus

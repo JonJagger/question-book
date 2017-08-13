@@ -23,15 +23,13 @@ class QuestionBook < Sinatra::Base
   get '/qid' do
     content_type :json
     if File.directory?(qDir)
-      { "exists":true, "text":File.read(qFilename) }.to_json
+      { "exists":true, "text":qText }.to_json
     else
       { "exists":false }.to_json
     end
   end
 
   get '/answer' do
-    @qId = params['q_id']
-    # TODO: get question
     erb :answer
   end
 
@@ -41,15 +39,14 @@ class QuestionBook < Sinatra::Base
 
   get '/read' do
     @qId = params['q_id']
-    # TODO: lookup q_text
-    @qText = "what is your favourite colour"
+    @qText = qText
     erb :read
   end
 
 private
 
   def qid
-    SecureRandom.hex[0..5].upcase
+    SecureRandom.hex[0..3].upcase
   end
 
   def qDir
@@ -58,6 +55,10 @@ private
 
   def qFilename
     "#{qDir}/question.txt"
+  end
+
+  def qText
+    File.read(qFilename)
   end
 
 end
