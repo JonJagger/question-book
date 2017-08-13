@@ -23,9 +23,9 @@ class QuestionBook < Sinatra::Base
   get '/qid' do
     content_type :json
     if File.directory?(qDir)
-      { "exists":true, "text":qText }.to_json
+      { 'exists':true, 'text':qText }.to_json
     else
-      { "exists":false }.to_json
+      { 'exists':false }.to_json
     end
   end
 

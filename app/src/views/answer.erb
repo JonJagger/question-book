@@ -22,7 +22,7 @@ $(document).ready(function() {
   };
 
   const showQuestionAnswerSubmit = function(qText) {
-    question.val(qText).slideDown('slow', function(){
+    question.val(qText).slideDown('slow', function() {
       answer.slideDown(900, function() {
         submit
           .enable(answer.val().trim() !== '')
