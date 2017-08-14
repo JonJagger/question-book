@@ -3,7 +3,7 @@ version: '2'
 
 services:
   question-book:
-    user: nobody
+    user: root
     image: ${QUESTION_BOOK_IMAGE}
     container_name: ${QUESTION_BOOK_CONTAINER}
     tmpfs: /tmp
