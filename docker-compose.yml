@@ -3,9 +3,9 @@ version: '2'
 
 services:
   question-book:
-    user: root
-    image: cyberdojo/question-book:1.0
-    container_name: question-book
+    user: nobody
+    image: ${QUESTION_BOOK_IMAGE}
+    container_name: ${QUESTION_BOOK_CONTAINER}
     tmpfs: /tmp
     build:
       context: app
