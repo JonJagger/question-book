@@ -10,20 +10,20 @@ class QuestionBook < Sinatra::Base
   end
 
   get '/ask' do
-    @qId = qid
+    @id = random_id
     erb :ask
   end
 
   post '/asked' do
     FileUtils::mkdir_p qDir
-    File.write(qFilename, params['q_text'])
+    File.write(qFilename, params['question'])
     redirect to('/')
   end
 
-  get '/qid' do
+  get '/is_id' do
     content_type :json
     if File.directory?(qDir)
-      { 'exists':true, 'text':qText }.to_json
+      { 'exists':true, 'text':question }.to_json
     else
       { 'exists':false }.to_json
     end
@@ -34,14 +34,14 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/answered' do
-    File.write("#{qDir}/#{qid}.txt", params['answer'])
-    redirect to("/read?q_id=#{params['q_id']}")
+    File.write("#{qDir}/#{random_id}.txt", answer)
+    redirect to("/read?id=#{id}")
   end
 
   get '/read' do
-    @qId = params['q_id']
-    @qText = qText
-    @qAnswers = Dir.glob("#{qDir}/*.txt").collect { |filename|
+    @id = id
+    @question = question
+    @answers = Dir.glob("#{qDir}/*.txt").collect { |filename|
       File.read(filename).strip
     }
     #@qAnswers = %w( jon bert ernie fred alice andy carol denzil paul ).sort
@@ -50,19 +50,27 @@ class QuestionBook < Sinatra::Base
 
 private
 
-  def qid
+  def random_id
     SecureRandom.hex[0..3].upcase
   end
 
+  def id
+    params['id']
+  end
+
+  def answer
+    params['answer']
+  end
+
   def qDir
-    "/tmp/question-book/#{params['q_id'].upcase}"
+    "/tmp/question-book/#{id.upcase}"
   end
 
   def qFilename
     "#{qDir}/question.text"
   end
 
-  def qText
+  def question
     File.read(qFilename)
   end
 

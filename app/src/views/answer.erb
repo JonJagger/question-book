@@ -3,13 +3,13 @@
 
 $(document).ready(function() {
 
-  const qid      = $('#q_id');
+  const id       = $('#id');
   const question = $('#question');
   const answer   = $('#answer');
   const submit   = abled($(':submit'));
 
   const onlyAcceptHexIdInput = function() {
-    qid.keypress(function(e) {
+    id.keypress(function(e) {
       const ch = String.fromCharCode(!e.charCode ? e.which : e.charCode);
       if (ch.match(/[a-fA-F0-9]/)) {
         return true;
@@ -35,12 +35,12 @@ $(document).ready(function() {
     });
   };
 
-  const retrieveQuestionFromHexId = function() {
-    qid.keyup(function(){
-      if (qid.val().length === 4) {
-        $.getJSON('/qid', { q_id:qid.val() }, function(q) {
+  const retrieveQuestionFromId = function() {
+    id.keyup(function(){
+      if (id.val().length === 4) {
+        $.getJSON('/is_id', { id:id.val() }, function(q) {
           if (q.exists) {
-            qid.blur(); // lose-focus
+            id.blur(); // lose-focus
             showQuestionAnswerSubmit(q.text);
           }
         });
@@ -59,7 +59,7 @@ $(document).ready(function() {
   submit.hide();
 
   onlyAcceptHexIdInput();
-  retrieveQuestionFromHexId();
+  retrieveQuestionFromId();
   enableSubmitIfAnswer();
 
 });
@@ -81,10 +81,10 @@ $(document).ready(function() {
 
 <form method="post" action="answered">
   <row>
-    <label>its hex-id is
+    <label>its id is
       <input type="text"
-             id="q_id"
-             name="q_id"
+             id="id"
+             name="id"
              autocomplete="off"
              placeholder="?"
              autofocus>

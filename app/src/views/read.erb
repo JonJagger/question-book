@@ -6,6 +6,8 @@ $(document).ready(function() {
   // You could come here without a valid _id
   // So I need q_id entry field to be editable
   // just like answer.erb
+  //
+  // Use ajax to get answers.
 
 });
 
@@ -22,15 +24,15 @@ $(document).ready(function() {
 <row>
   <label>its hex-id is
     <input type="text"
-           id="q_id"
+           id="id"
            readonly
-           value="<%= @qId %>">
+           value="<%= @id %>">
   </label>
 </row>
-<textarea id="q_text" readonly><%= @qText %></textarea>
+<textarea id="question" readonly><%= @question %></textarea>
 <row>
   <answers>
-    <% @qAnswers.each do |answer| %>
+    <% @answers.each do |answer| %>
       <div class="answer" readonly><%= answer %></div>
     <% end %>
   </answers>

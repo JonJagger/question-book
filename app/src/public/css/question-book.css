@@ -66,7 +66,7 @@
       color: white;
     }
 
-    input#q_id {
+    input#id {
       display: inline;
       padding-left: 5px;
       width: 115px;
@@ -83,7 +83,7 @@
       margin-bottom: 5px;
     }
 
-    textarea#q_text {
+    textarea#question {
       height: 80px;
     }
 

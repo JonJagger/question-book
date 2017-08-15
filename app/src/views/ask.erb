@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   submit.disable();
 
-  $('#q_text').keyup(function() {
+  $('#question').keyup(function() {
     submit.enable($(this).val().trim() !== '');
   });
 
@@ -24,16 +24,16 @@ $(document).ready(function() {
 
 <form method="post" action="asked">
   <row>
-    <label>its hex-id is
+    <label>its id is
       <input type="text"
-             id="q_id"
-             name="q_id"
-             value="<%= @qId %>"
+             id="id"
+             name="id"
+             value="<%= @id %>"
              readonly>
     </label>
   </row>
-  <textarea id="q_text"
-            name="q_text"
+  <textarea id="question"
+            name="question"
             placeholder="Enter your question here"
             autofocus></textarea>
   <row>
