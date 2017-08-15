@@ -44,7 +44,7 @@ class QuestionBook < Sinatra::Base
     @qAnswers = Dir.glob("#{qDir}/*.txt").collect { |filename|
       File.read(filename).strip
     }
-    #@qAnswers = %w( jon bert ernie fred alice )
+    #@qAnswers = %w( jon bert ernie fred alice andy carol denzil paul ).sort
     erb :read
   end
 

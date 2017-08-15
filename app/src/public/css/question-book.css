@@ -82,13 +82,26 @@
       padding-right: 4px;
       margin-bottom: 5px;
     }
+
     textarea#q_text {
       height: 80px;
     }
-    textarea#answer, textarea.answer {
+
+    textarea#answer, div.answer {
       height: 40px;
       color: white;
       background-color: black;
+    }
+
+    div.answer {
+      border-bottom: 1px solid gray;
+      padding-left: 8px;
+    }
+
+    answers {
+      height: 320;
+      overflow: scroll;
+      display: block;
     }
 
     input {
