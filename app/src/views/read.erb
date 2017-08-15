@@ -28,4 +28,8 @@ $(document).ready(function() {
   </label>
 </row>
 <textarea id="q_text" readonly><%= @qText %></textarea>
-
+<% @qAnswers.each do |answer| %>
+<row>
+  <textarea class="answer" readonly><%= answer %></textarea>
+</row>
+<% end %>

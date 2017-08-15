@@ -4,8 +4,8 @@
 $(document).ready(function() {
 
   const qid      = $('#q_id');
-  const question = $('#q_text');
-  const answer   = $('#a_text');
+  const question = $('#question');
+  const answer   = $('#answer');
   const submit   = abled($(':submit'));
 
   const onlyAcceptHexIdInput = function() {
@@ -90,9 +90,9 @@ $(document).ready(function() {
              autofocus>
     </label>
   </row>
-  <textarea id="q_text" readonly></textarea>
-  <textarea id="a_text"
-            name="a_text"
+  <textarea id="question" readonly></textarea>
+  <textarea id="answer"
+            name="answer"
             placeholder="Enter your answer here"></textarea>
   <row>
     <button type="submit">submit it</button>

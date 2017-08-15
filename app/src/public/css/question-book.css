@@ -78,10 +78,17 @@
       display: block;
       margin: 0 auto;
       width: 355px;
-      height: 120px;
       padding-left: 8px;
       padding-right: 4px;
       margin-bottom: 5px;
+    }
+    textarea#q_text {
+      height: 80px;
+    }
+    textarea#answer, textarea.answer {
+      height: 40px;
+      color: white;
+      background-color: black;
     }
 
     input {

@@ -34,12 +34,17 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/answered' do
+    File.write("#{qDir}/#{qid}.txt", params['answer'])
     redirect to("/read?q_id=#{params['q_id']}")
   end
 
   get '/read' do
     @qId = params['q_id']
     @qText = qText
+    @qAnswers = Dir.glob("#{qDir}/*.txt").collect { |filename|
+      File.read(filename).strip
+    }
+    #@qAnswers = %w( jon bert ernie fred alice )
     erb :read
   end
 
@@ -54,7 +59,7 @@ private
   end
 
   def qFilename
-    "#{qDir}/question.txt"
+    "#{qDir}/question.text"
   end
 
   def qText
