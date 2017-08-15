@@ -87,13 +87,14 @@
       height: 80px;
     }
 
-    textarea#answer, div.answer {
+    textarea#answer, answer {
       height: 40px;
       color: white;
       background-color: black;
     }
 
-    div.answer {
+    answer {
+      display: block;
       border-bottom: 1px solid gray;
       padding-left: 8px;
     }
