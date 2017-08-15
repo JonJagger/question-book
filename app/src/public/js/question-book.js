@@ -2,11 +2,11 @@
 const abled = function(node) {
 
   const disable = function() {
-    node.prop('disabled',true);
+    node.prop('disabled', true);
   };
 
   const enable = function() {
-    node.prop('disabled',false);
+    node.prop('disabled', false);
   };
 
   node.enable = function(tf) {
