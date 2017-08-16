@@ -3,11 +3,51 @@
 
 $(document).ready(function() {
 
-  // You could come here without a valid _id
-  // So I need q_id entry field to be editable
-  // just like answer.erb
-  //
-  // Use ajax to get answers.
+  const id       = $('#id');
+  const question = $('#question');
+  const answers  = $('answers');
+
+  const slideSpeed = 'fast';
+
+  const onlyAcceptHexIdInput = function() {
+    id.keypress(function(e) {
+      const ch = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+      if (ch.match(/[a-fA-F0-9]/)) {
+        return true;
+      } else {
+        e.preventDefault();
+        //TODO: beep
+        return false;
+      }
+    });
+  };
+
+  const showQuestionAnswers = function(book) {
+  };
+
+  const hideQuestionAnswers = function() {
+  };
+
+  const retrieveQuestionFromId = function() {
+    id.keyup(function() {
+      if (id.val().length !== 4) {
+        hideQuestionAnswers();
+      } else {
+        $.getJSON('/book', { id:id.val() }, functionbook {
+          if (book.question !== '') {
+            showQuestionAnswers(book);
+          } else {
+            hideQuestionAnswers();
+          }
+        });
+      }
+    });
+  };
+
+  question.hide();
+  answers.hide();
+
+  onlyAcceptHexIdInput();
 
 });
 
@@ -20,10 +60,10 @@ $(document).ready(function() {
   <h2>read the answers</h2>
 </row>
 <row>
-  <label>its hex-id is
+  <label>its id is
     <input type="text"
            id="id"
-           readonly
+           autocomplete="off"
            value="<%= @id %>">
   </label>
 </row>

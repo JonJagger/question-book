@@ -8,6 +8,8 @@ $(document).ready(function() {
   const answer   = $('#answer');
   const submit   = abled($(':submit'));
 
+  const slideSpeed = 'fast';
+
   const onlyAcceptHexIdInput = function() {
     id.keypress(function(e) {
       const ch = String.fromCharCode(!e.charCode ? e.which : e.charCode);
@@ -22,21 +24,20 @@ $(document).ready(function() {
   };
 
   const showQuestionAnswerSubmit = function(text) {
-    question.val(text).slideDown('slow', function() {
-      answer.slideDown(900, function() {
-        submit
-          .enable(answer.val().trim() !== '')
-          .slideDown('slow', function() {
-            answer.focus();
-          });
+    question.val(text).slideDown(slideSpeed, function() {
+      answer.slideDown(slideSpeed, function() {
+        submit.enable(answer.val().trim() !== '')
+              .slideDown(slideSpeed, function() {
+                 answer.focus();
+               });
       });
     });
   };
 
   const hideQuestionAnswerSubmit = function() {
-    submit.slideUp('fast', function() {
-      answer.slideUp('fast', function() {
-        question.slideUp('fast');
+    submit.slideUp(slideSpeed, function() {
+      answer.slideUp(slideSpeed, function() {
+        question.slideUp(slideSpeed);
       });
     });
   };
@@ -46,10 +47,10 @@ $(document).ready(function() {
       if (id.val().length !== 4) {
         hideQuestionAnswerSubmit();
       } else {
-        $.getJSON('/is_id', { id:id.val() }, function(question) {
-          if (question.text !== '') {
+        $.getJSON('/book', { id:id.val() }, function(book) {
+          if (book.question !== '') {
             id.blur(); // lose-focus
-            showQuestionAnswerSubmit(question.text);
+            showQuestionAnswerSubmit(book.question);
           } else {
             hideQuestionAnswerSubmit();
           }

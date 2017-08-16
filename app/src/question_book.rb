@@ -20,13 +20,14 @@ class QuestionBook < Sinatra::Base
     redirect to('/')
   end
 
-  get '/is_id' do
-    content_type :json
-    { 'text':question }.to_json
+  get '/answer' do
+    @id = id
+    erb :answer
   end
 
-  get '/answer' do
-    erb :answer
+  get '/book' do
+    content_type :json
+    { 'question':question, 'answers':answers }.to_json
   end
 
   post '/answered' do
@@ -54,7 +55,7 @@ private
   end
 
   def id
-    params['id'].upcase
+    (params['id'] || '').upcase
   end
 
   def answer
