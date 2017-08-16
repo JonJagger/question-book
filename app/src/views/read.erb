@@ -61,7 +61,10 @@ $(document).ready(function() {
   id.keyup(function() {
     retrieveQuestionAnswersFromId();
   });
+
   retrieveQuestionAnswersFromId();
+
+  setInterval(retrieveQuestionAnswersFromId, 2000);
 
 });
 
