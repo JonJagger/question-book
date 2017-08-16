@@ -39,7 +39,7 @@ $(document).ready(function() {
     id.keyup(function() {
       if (id.val().length === 4) {
         $.getJSON('/is_id', { id:id.val() }, function(question) {
-          if (question.exists) {
+          if (question.text !== '') {
             id.blur(); // lose-focus
             showQuestionAnswerSubmit(question.text);
           }

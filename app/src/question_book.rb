@@ -15,18 +15,14 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/asked' do
-    FileUtils::mkdir_p qDir
-    File.write(qFilename, params['question'])
+    FileUtils::mkdir_p dir
+    File.write(filename, params['question'].strip)
     redirect to('/')
   end
 
   get '/is_id' do
     content_type :json
-    if File.directory?(qDir)
-      { 'exists':true, 'text':question }.to_json
-    else
-      { 'exists':false }.to_json
-    end
+    { 'text':question }.to_json
   end
 
   get '/answer' do
@@ -34,17 +30,20 @@ class QuestionBook < Sinatra::Base
   end
 
   post '/answered' do
-    File.write("#{qDir}/#{random_id}.txt", answer)
+    File.write("#{dir}/#{random_id}.txt", answer)
     redirect to("/read?id=#{id}")
+  end
+
+  get '/answers' do
+    content_type :json
+    { answers:answers }.to_json
   end
 
   get '/read' do
     @id = id
     @question = question
-    @answers = Dir.glob("#{qDir}/*.txt").collect { |filename|
-      File.read(filename).strip
-    }
-    #@qAnswers = %w( jon bert ernie fred alice andy carol denzil paul ).sort
+    @answers = answers
+    @answers = %w( jon bert ernie fred alice andy carol denzil paul ).sort
     erb :read
   end
 
@@ -55,23 +54,29 @@ private
   end
 
   def id
-    params['id']
+    params['id'].upcase
   end
 
   def answer
     params['answer']
   end
 
-  def qDir
-    "/tmp/question-book/#{id.upcase}"
+  def answers
+    Dir.glob("#{dir}/*.txt").collect { |filename|
+      File.read(filename).strip
+    }
   end
 
-  def qFilename
-    "#{qDir}/question.text"
+  def dir
+    "/tmp/question-book/#{id}"
+  end
+
+  def filename
+    "#{dir}/question.text"
   end
 
   def question
-    File.read(qFilename)
+    File.file?(filename) ? File.read(filename) : ''
   end
 
 end
