@@ -27,21 +27,31 @@ $(document).ready(function() {
         submit
           .enable(answer.val().trim() !== '')
           .slideDown('slow', function() {
-            //TODO: only switch focus if revealing?
-            //TODO: don't switch focus if deleting text?
             answer.focus();
           });
       });
     });
   };
 
+  const hideQuestionAnswerSubmit = function() {
+    submit.slideUp('fast', function() {
+      answer.slideUp('fast', function() {
+        question.slideUp('fast');
+      });
+    });
+  };
+
   const retrieveQuestionFromId = function() {
     id.keyup(function() {
-      if (id.val().length === 4) {
+      if (id.val().length !== 4) {
+        hideQuestionAnswerSubmit();
+      } else {
         $.getJSON('/is_id', { id:id.val() }, function(question) {
           if (question.text !== '') {
             id.blur(); // lose-focus
             showQuestionAnswerSubmit(question.text);
+          } else {
+            hideQuestionAnswerSubmit();
           }
         });
       }
