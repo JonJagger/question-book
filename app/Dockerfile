@@ -5,7 +5,6 @@ RUN apk update
 RUN apk upgrade
 
 COPY Gemfile .
-RUN gem install bundler
 RUN bundle install
 
 COPY . /app
