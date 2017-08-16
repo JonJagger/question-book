@@ -17,21 +17,24 @@ $(document).ready(function() {
         return true;
       } else {
         e.preventDefault();
-        //TODO: beep
         return false;
       }
     });
   };
 
   const showQuestionAnswerSubmit = function(text) {
-    question.val(text).slideDown(slideSpeed, function() {
-      answer.slideDown(slideSpeed, function() {
-        submit.enable(answer.val().trim() !== '')
+    question
+      .val(text)
+      .slideDown(slideSpeed, function() {
+        answer
+          .slideDown(slideSpeed, function() {
+            submit
+              .enable(answer.val().trim() !== '')
               .slideDown(slideSpeed, function() {
-                 answer.focus();
-               });
+                answer.focus();
+              });
+          });
       });
-    });
   };
 
   const hideQuestionAnswerSubmit = function() {
@@ -44,15 +47,16 @@ $(document).ready(function() {
 
   const retrieveQuestionFromId = function() {
     id.keyup(function() {
-      if (id.val().length !== 4) {
+      const hex = id.val();
+      if (hex.length !== 4) {
         hideQuestionAnswerSubmit();
       } else {
-        $.getJSON('/book', { id:id.val() }, function(book) {
-          if (book.question !== '') {
+        $.getJSON('/book', { id:hex }, function(book) {
+          if (book.question === '') {
+            hideQuestionAnswerSubmit();
+          } else {
             id.blur(); // lose-focus
             showQuestionAnswerSubmit(book.question);
-          } else {
-            hideQuestionAnswerSubmit();
           }
         });
       }
@@ -85,10 +89,6 @@ $(document).ready(function() {
 <row>
   <h2>answer a question</h2>
 </row>
-
-<audio>
-  <source id="beep" src="audio/beep.mp3"></source>
-</audio>
 
 <form method="post" action="answered">
   <row>

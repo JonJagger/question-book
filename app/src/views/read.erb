@@ -16,38 +16,52 @@ $(document).ready(function() {
         return true;
       } else {
         e.preventDefault();
-        //TODO: beep
         return false;
       }
     });
   };
 
   const showQuestionAnswers = function(book) {
+    question
+      .val(book.question)
+      .slideDown(slideSpeed, function() {
+        answers.empty();
+        for (const answer of book.answers) {
+          answers.append($('<answer>', { text:answer }));
+        }
+        answers.slideDown(slideSpeed);
+    });
   };
 
   const hideQuestionAnswers = function() {
+    answers.slideUp(slideSpeed, function() {
+      question.slideUp(slideSpeed);
+    });
   };
 
-  const retrieveQuestionFromId = function() {
-    id.keyup(function() {
-      if (id.val().length !== 4) {
-        hideQuestionAnswers();
-      } else {
-        $.getJSON('/book', { id:id.val() }, functionbook {
-          if (book.question !== '') {
-            showQuestionAnswers(book);
-          } else {
-            hideQuestionAnswers();
-          }
-        });
-      }
-    });
+  const retrieveQuestionAnswersFromId = function() {
+    const hex = id.val();
+    if (hex.length !== 4) {
+      hideQuestionAnswers();
+    } else {
+      $.getJSON('/book', { id:hex }, function(book) {
+        if (book.question === '') {
+          hideQuestionAnswers();
+        } else {
+          showQuestionAnswers(book);
+        }
+      });
+    }
   };
 
   question.hide();
   answers.hide();
 
   onlyAcceptHexIdInput();
+  id.keyup(function() {
+    retrieveQuestionAnswersFromId();
+  });
+  retrieveQuestionAnswersFromId();
 
 });
 
@@ -67,11 +81,8 @@ $(document).ready(function() {
            value="<%= @id %>">
   </label>
 </row>
-<textarea id="question" readonly><%= @question %></textarea>
+<textarea id="question" readonly></textarea>
 <row>
   <answers>
-    <% @answers.each do |answer| %>
-      <answer><%= answer %></answer>
-    <% end %>
   </answers>
 </row>
