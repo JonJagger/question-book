@@ -10,7 +10,11 @@ Runs inside a [Docker](https://www.docker.com/) container.
 Try it now using the awesome
 [play with docker](http://labs.play-with-docker.com/)
 
-Click the recaptcha, add a new instance, and in the terminal type these three commands:
+Click the recaptcha and add a new instance.
+
+![play with docker](/img/play-with-docker.png)
+
+In the terminal type these three commands:
 ```
 git clone https://github.com/JonJagger/question-book.git
 cd question-book
@@ -18,8 +22,6 @@ cd question-book
 ```
 
 A port 3638 link will then appear near the top of the page. Click it!
-
-![play with docker](/img/play-with-docker.png)
 
 ![home](/img/home.png)
 ![ask](/img/ask.png)
