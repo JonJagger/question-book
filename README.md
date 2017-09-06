@@ -7,8 +7,6 @@ which helps to avoid initial bias. See [Anchoring](http://en.wikipedia.org/wiki/
 Served by [sinatra](http://www.sinatrarb.com/).
 Runs inside a [Docker](https://www.docker.com/) container.
 
-![home](/img/home.png)
-
 Try it now using the awesome
 [play with docker](http://labs.play-with-docker.com/)
 
@@ -21,6 +19,6 @@ cd question-book
 
 A port 3638 link will then appear near the top of the page. Click it!
 
-
+![home](/img/home.png)
 ![ask](/img/ask.png)
 ![answer](/img/answer.png)
