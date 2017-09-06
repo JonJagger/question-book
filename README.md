@@ -19,6 +19,8 @@ cd question-book
 
 A port 3638 link will then appear near the top of the page. Click it!
 
+![play with docker](/img/play-with-docker.png)
+
 ![home](/img/home.png)
 ![ask](/img/ask.png)
 ![answer](/img/answer.png)
