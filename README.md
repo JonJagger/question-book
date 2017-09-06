@@ -26,3 +26,4 @@ A port 3638 link will then appear near the top of the page. Click it!
 ![home](/img/home.png)
 ![ask](/img/ask.png)
 ![answer](/img/answer.png)
+![read](/img/read.png)
