@@ -11,15 +11,14 @@ Try it now using the awesome
 [play with docker](http://labs.play-with-docker.com/)
 
 Click the recaptcha and add a new instance.
-
-![play with docker](/img/play-with-docker.png)
-
 In the terminal type these three commands:
 ```
 git clone https://github.com/JonJagger/question-book.git
 cd question-book
 ./pipe_build_up_test.sh
 ```
+
+![play with docker](/img/play-with-docker.png)
 
 A port 3638 link will then appear near the top of the page. Click it!
 
