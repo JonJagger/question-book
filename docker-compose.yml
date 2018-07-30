@@ -10,6 +10,7 @@ services:
     build:
       context: app
       args:
+        - QUESTION_BOOK_HOME=${QUESTION_BOOK_HOME}
         - PORT=${QUESTION_BOOK_PORT}
     ports:
       - ${QUESTION_BOOK_PORT}:${QUESTION_BOOK_PORT}

@@ -10,8 +10,8 @@ Runs inside a [Docker](https://www.docker.com/) container.
 Try it now using the awesome
 [play with docker](http://labs.play-with-docker.com/)
 
-Click the recaptcha and add a new instance.
-In the terminal type these three commands:
+Login, and add a new instance,
+in the terminal type these three commands:
 ```
 git clone https://github.com/JonJagger/question-book.git
 cd question-book

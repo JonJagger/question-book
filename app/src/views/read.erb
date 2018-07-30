@@ -1,7 +1,6 @@
-
 <script type="text/javascript"><!--
 
-$(document).ready(function() {
+$(() => {
 
   const id       = $('#id');
   const question = $('#question');
@@ -9,8 +8,8 @@ $(document).ready(function() {
 
   const slideSpeed = 'fast';
 
-  const onlyAcceptHexIdInput = function() {
-    id.keypress(function(e) {
+  const onlyAcceptHexIdInput = () => {
+    id.keypress((e) => {
       const ch = String.fromCharCode(!e.charCode ? e.which : e.charCode);
       if (ch.match(/[a-fA-F0-9]/)) {
         return true;
@@ -21,10 +20,10 @@ $(document).ready(function() {
     });
   };
 
-  const showQuestionAnswers = function(book) {
+  const showQuestionAnswers = (book) => {
     question
       .val(book.question)
-      .slideDown(slideSpeed, function() {
+      .slideDown(slideSpeed, () => {
         answers.empty();
         for (const answer of book.answers) {
           answers.append($('<answer>', { text:answer }));
@@ -33,13 +32,13 @@ $(document).ready(function() {
     });
   };
 
-  const hideQuestionAnswers = function() {
-    answers.slideUp(slideSpeed, function() {
+  const hideQuestionAnswers = () => {
+    answers.slideUp(slideSpeed, () => {
       question.slideUp(slideSpeed);
     });
   };
 
-  const retrieveQuestionAnswersFromId = function() {
+  const retrieveQuestionAnswersFromId = () => {
     const hex = id.val();
     if (hex.length !== 4) {
       hideQuestionAnswers();
@@ -58,7 +57,7 @@ $(document).ready(function() {
   answers.hide();
 
   onlyAcceptHexIdInput();
-  id.keyup(function() {
+  id.keyup(() => {
     retrieveQuestionAnswersFromId();
   });
 
