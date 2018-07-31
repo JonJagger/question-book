@@ -55,14 +55,9 @@ $(() => {
 
   question.hide();
   answers.hide();
-
   onlyAcceptHexIdInput();
-  id.keyup(() => {
-    retrieveQuestionAnswersFromId();
-  });
-
+  id.keyup(() => { retrieveQuestionAnswersFromId(); });
   retrieveQuestionAnswersFromId();
-
   setInterval(retrieveQuestionAnswersFromId, 2000);
 
 });
