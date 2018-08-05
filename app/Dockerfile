@@ -1,4 +1,5 @@
-FROM  alpine:3.7
+ARG   ALPINE_VERSION
+FROM  alpine:${ALPINE_VERSION}
 LABEL maintainer=jon@jaggersoft.com
 
 RUN apk --update --no-cache add \
@@ -7,7 +8,6 @@ RUN apk --update --no-cache add \
     ruby-dev
 
 ARG  QUESTION_BOOK_HOME
-
 COPY Gemfile ${QUESTION_BOOK_HOME}/
 WORKDIR ${QUESTION_BOOK_HOME}
 
@@ -20,8 +20,4 @@ RUN apk --update add --virtual build-dependencies build-base \
 
 COPY . ${QUESTION_BOOK_HOME}
 
-ARG PORT
-EXPOSE ${PORT}
-ENV PORT=${PORT}
-
-CMD [ "./up.sh" ]
+CMD [ "./question-book.sh" ]
