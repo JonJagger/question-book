@@ -1,2 +1,17 @@
-Gemfile.lock
+#-----Ignore everything
+
+*
+
+#-----!Except these dirs
+
+!src
+!test
+
+#-----!Except these files
+
+!Gemfile
+!Rakefile
+!config.ru
+!up.sh
+
 
