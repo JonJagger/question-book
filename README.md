@@ -9,7 +9,7 @@ Login, and add a new instance,
 in the terminal type these three commands:
 ```
 git clone https://github.com/JonJagger/question-book.git
-./question-book/local_pipe.sh
+./question-book/sh/local_pipe.sh
 ```
 
 ![play with docker](/img/play-with-docker.png)
